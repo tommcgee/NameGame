@@ -1,0 +1,19 @@
+{
+  "name": "namegame",
+  "version": "1.0.0",
+  "description": "A library to play a name guessing game",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "name",
+    "game"
+  ],
+  "author": "Tom McGee",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "requirejs": "^2.3.5"
+  }
+}
