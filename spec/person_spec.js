@@ -1,33 +1,73 @@
 var Person = require ('../src/person.js');
 
 describe("person", function() {
-  it("has a name", function() {
-    var person = new Person("Tom");
+  describe("name", function() {
+    it("has a name", function() {
+      var person = new Person("Tom");
 
-    expect(person.name).toBe("Tom");
+      expect(person.name).toBe("Tom");
+    });
+
+    it("tells you if you guess incorrectly", function() {
+      var person = new Person("Tom");
+
+      expect(person.guessName("Tony")).toBe(false);
+    });
+
+    it("tells you if you guess correctly", function() {
+      var person = new Person("Tom");
+
+      expect(person.guessName("Tom")).toBe(true);
+    });
+
+    it("ignores case for a correct guess", function() {
+      var person = new Person("TOM");
+
+      expect(person.guessName("tom")).toBe(true);
+    });
+
+    it("trims whitespace from a guess and a name", function() {
+      var person = new Person("TOM        ");
+
+      expect(person.guessName("tom                  ")).toBe(true);
+    });
   });
 
-  it("tells you if you guess incorrectly", function() {
-    var person = new Person("Tom");
+  describe("title", function() {
+    it("has a title", function() {
+      var person = new Person("Tom", "Software Crafter");
 
-    expect(person.guessName("Tony")).toBe(false);
-  });
+      expect(person.title).toBe("Software Crafter");
+    });
 
-  it("tells you if you guess correctly", function() {
-    var person = new Person("Tom");
+    it("does not have a title", function() {
+      var person = new Person("Tom");
 
-    expect(person.guessName("Tom")).toBe(true);
-  });
+      expect(person.title).toBe(undefined);
+    });
 
-  it("ignores case for a correct guess", function() {
-    var person = new Person("TOM");
+    it("tells you if you guess incorrectly", function() {
+      var person = new Person("Tom", "Software Crafter");
 
-    expect(person.guessName("tom")).toBe(true);
-  });
+      expect(person.guessTitle("Tony")).toBe(false);
+    });
 
-  it("trims whitespace from a guess and a name", function() {
-    var person = new Person("TOM        ");
+    it("tells you if you guess correctly", function() {
+      var person = new Person("Tom", "Software Crafter");
 
-    expect(person.guessName("tom                  ")).toBe(true);
+      expect(person.guessTitle("Software Crafter")).toBe(true);
+    });
+
+    it("ignores case for a correct guess", function() {
+      var person = new Person("Tom", "SOFTWARE CRAFTER");
+
+      expect(person.guessTitle("software crafter")).toBe(true);
+    });
+
+    it("trims whitespace from a guess and a name", function() {
+      var person = new Person("Tom", "                    SOFTWARE CRAFTER");
+
+      expect(person.guessTitle("software crafter")).toBe(true);
+    });
   });
 });

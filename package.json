@@ -2,15 +2,23 @@
   "name": "namegame",
   "version": "1.0.0",
   "description": "A library to play a name guessing game",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommcgee/NameGame.git"
   },
   "keywords": [
     "name",
     "game"
   ],
   "author": "Tom McGee",
+	"bugs": {
+    "url": "https://github.com/tommcgee/NameGame/issues"
+  },
+  "homepage": "https://github.com/tommcgee/NameGame",
   "license": "ISC",
   "devDependencies": {
     "jasmine": "^3.1.0",

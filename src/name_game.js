@@ -9,8 +9,16 @@ class NameGame {
     this.people.push(new Person(name));
   }
 
+  addPerson(name, title) {
+    this.people.push(new Person(name, title));
+  }
+
   guessNameAt(name, position) {
     return this.people[position - 1].guessName(name);
+  }
+
+  guessTitleAt(title, position) {
+    return this.people[position - 1].guessTitle(title);
   }
 }
 
